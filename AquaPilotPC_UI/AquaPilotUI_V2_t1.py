@@ -8,9 +8,9 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
+from PySide6.QtCore import *
+from PySide6.QtGui import *
+from PySide6.QtWidgets import *
 
 
 class Ui_AquaPlayer(object):
@@ -18,6 +18,7 @@ class Ui_AquaPlayer(object):
         if not AquaPlayer.objectName():
             AquaPlayer.setObjectName(u"AquaPlayer")
         AquaPlayer.resize(1282, 958)
+        AquaPlayer.setMinimumSize(QSize(65, 0))
         self.centralwidget = QWidget(AquaPlayer)
         self.centralwidget.setObjectName(u"centralwidget")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
@@ -95,36 +96,6 @@ class Ui_AquaPlayer(object):
 
         self.functionBarHorizontalLayout.addWidget(self.sensorFunPushButton)
 
-        self.probioticFunPushButton = QPushButton(self.centralwidget)
-        self.probioticFunPushButton.setObjectName(u"probioticFunPushButton")
-        self.probioticFunPushButton.setStyleSheet(u"QPushButton {\n"
-"    background-color: #F1E1FF;\n"
-"    border: 2px solid #A08BC7;\n"
-"    border-radius: 5px;\n"
-"    padding: 8px 16px;\n"
-"    font: bold 14px;\n"
-"    color: #4C3A68;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #E8D4FF;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #D0BAF7;\n"
-"    border-color: #7B5EA7;\n"
-"    color: #3A2955;\n"
-"}\n"
-"\n"
-"QPushButton:disabled {\n"
-"    background-color: #E8D4FF;\n"
-"    color: #B3A2CC;\n"
-"    border-color: #C1B1E2;\n"
-"}\n"
-"")
-
-        self.functionBarHorizontalLayout.addWidget(self.probioticFunPushButton)
-
         self.feederFunPushButton = QPushButton(self.centralwidget)
         self.feederFunPushButton.setObjectName(u"feederFunPushButton")
         self.feederFunPushButton.setStyleSheet(u"QPushButton {\n"
@@ -154,6 +125,36 @@ class Ui_AquaPlayer(object):
 "")
 
         self.functionBarHorizontalLayout.addWidget(self.feederFunPushButton)
+
+        self.probioticFunPushButton = QPushButton(self.centralwidget)
+        self.probioticFunPushButton.setObjectName(u"probioticFunPushButton")
+        self.probioticFunPushButton.setStyleSheet(u"QPushButton {\n"
+"    background-color: #F1E1FF;\n"
+"    border: 2px solid #A08BC7;\n"
+"    border-radius: 5px;\n"
+"    padding: 8px 16px;\n"
+"    font: bold 14px;\n"
+"    color: #4C3A68;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #E8D4FF;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #D0BAF7;\n"
+"    border-color: #7B5EA7;\n"
+"    color: #3A2955;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #E8D4FF;\n"
+"    color: #B3A2CC;\n"
+"    border-color: #C1B1E2;\n"
+"}\n"
+"")
+
+        self.functionBarHorizontalLayout.addWidget(self.probioticFunPushButton)
 
         self.deviceFunPushButton = QPushButton(self.centralwidget)
         self.deviceFunPushButton.setObjectName(u"deviceFunPushButton")
@@ -290,7 +291,7 @@ class Ui_AquaPlayer(object):
         font.setFamily(u"Arial")
         font.setBold(True)
         font.setItalic(False)
-        font.setWeight(75)
+        font.setWeight(QFont.Weight.Bold)
         self.labNameTitle.setFont(font)
         self.labNameTitle.setStyleSheet(u"QLabel {\n"
 "    font: bold 16px \"Arial\";\n"
@@ -638,75 +639,46 @@ class Ui_AquaPlayer(object):
 
         self.horizontalLayout_9.addWidget(self.labDev1, 0, Qt.AlignVCenter)
 
-        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_9.addItem(self.horizontalSpacer_9)
-
-        self.labDev1Status = QLabel(self.centralwidget)
-        self.labDev1Status.setObjectName(u"labDev1Status")
-        sizePolicy1.setHeightForWidth(self.labDev1Status.sizePolicy().hasHeightForWidth())
-        self.labDev1Status.setSizePolicy(sizePolicy1)
-        self.labDev1Status.setMinimumSize(QSize(50, 0))
-        self.labDev1Status.setStyleSheet(u"QLabel{\n"
-"    font: 14px \"Arial\";\n"
-"    color: #4C3A68;\n"
-"    background-color: transparent;\n"
-"    border: none;\n"
-"    padding: 5px;\n"
-"}")
-        self.labDev1Status.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_9.addWidget(self.labDev1Status, 0, Qt.AlignVCenter)
-
         self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_9.addItem(self.horizontalSpacer_6)
+
+        self.btnAutoFeeder = QPushButton(self.centralwidget)
+        self.btnAutoFeeder.setObjectName(u"btnAutoFeeder")
+        self.btnAutoFeeder.setMinimumSize(QSize(65, 0))
+        self.btnAutoFeeder.setMaximumSize(QSize(65, 16777215))
+        self.btnAutoFeeder.setStyleSheet(u"QPushButton {\n"
+"    background-color: #F1E1FF;\n"
+"    border: 2px solid #A08BC7;\n"
+"    border-radius: 5px;\n"
+"    padding: 8px 16px;\n"
+"    font: bold 14px;\n"
+"    color: #4C3A68;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #E8D4FF;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #D0BAF7;\n"
+"    border-color: #7B5EA7;\n"
+"    color: #3A2955;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #E8D4FF;\n"
+"    color: #B3A2CC;\n"
+"    border-color: #C1B1E2;\n"
+"}\n"
+"")
+
+        self.horizontalLayout_9.addWidget(self.btnAutoFeeder)
 
         self.horizontalSpacer_7 = QSpacerItem(10, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_9.addItem(self.horizontalSpacer_7)
 
-        self.cbAutoFeeder = QCheckBox(self.centralwidget)
-        self.cbAutoFeeder.setObjectName(u"cbAutoFeeder")
-        self.cbAutoFeeder.setStyleSheet(u"QCheckBox {\n"
-"    spacing: 5px;\n"
-"    color: #4C3A68;\n"
-"    font: bold 14px;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator {\n"
-"    width: 20px;\n"
-"    height: 20px;\n"
-"    border: 2px solid #A08BC7;\n"
-"    border-radius: 4px;\n"
-"    background-color: #FFFFFF;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:hover {\n"
-"    border-color: #7B5EA7;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:checked {\n"
-"    background-color: #A08BC7;\n"
-"    border-color: #7B5EA7;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:unchecked {\n"
-"    background-color: #FFFFFF;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:disabled {\n"
-"    background-color: #E8D4FF;\n"
-"    border-color: #C1B1E2;\n"
-"    color: #B3A2CC;\n"
-"}\n"
-"")
-
-        self.horizontalLayout_9.addWidget(self.cbAutoFeeder, 0, Qt.AlignLeft|Qt.AlignVCenter)
-
-        self.horizontalLayout_9.setStretch(2, 1)
-        self.horizontalLayout_9.setStretch(4, 1)
-        self.horizontalLayout_9.setStretch(5, 1)
 
         self.layout_A2.addLayout(self.horizontalLayout_9)
 
@@ -728,77 +700,47 @@ class Ui_AquaPlayer(object):
 
         self.horizontalLayout_8.addWidget(self.labDev2, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_8.addItem(self.horizontalSpacer_10)
-
-        self.labDev2Status = QLabel(self.centralwidget)
-        self.labDev2Status.setObjectName(u"labDev2Status")
-        sizePolicy1.setHeightForWidth(self.labDev2Status.sizePolicy().hasHeightForWidth())
-        self.labDev2Status.setSizePolicy(sizePolicy1)
-        self.labDev2Status.setMinimumSize(QSize(50, 0))
-        self.labDev2Status.setAutoFillBackground(False)
-        self.labDev2Status.setStyleSheet(u"QLabel{\n"
-"    font: 14px \"Arial\";\n"
-"    color: #4C3A68;\n"
-"    background-color: transparent;\n"
-"    border: none;\n"
-"    padding: 5px;\n"
-"}")
-        self.labDev2Status.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_8.addWidget(self.labDev2Status, 0, Qt.AlignVCenter)
-
         self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_8.addItem(self.horizontalSpacer_11)
+
+        self.btnProbioticSprayer = QPushButton(self.centralwidget)
+        self.btnProbioticSprayer.setObjectName(u"btnProbioticSprayer")
+        self.btnProbioticSprayer.setMinimumSize(QSize(65, 0))
+        self.btnProbioticSprayer.setMaximumSize(QSize(65, 16777215))
+        self.btnProbioticSprayer.setStyleSheet(u"QPushButton {\n"
+"    background-color: #F1E1FF;\n"
+"    border: 2px solid #A08BC7;\n"
+"    border-radius: 5px;\n"
+"    padding: 8px 16px;\n"
+"    font: bold 14px;\n"
+"    color: #4C3A68;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #E8D4FF;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #D0BAF7;\n"
+"    border-color: #7B5EA7;\n"
+"    color: #3A2955;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #E8D4FF;\n"
+"    color: #B3A2CC;\n"
+"    border-color: #C1B1E2;\n"
+"}\n"
+"")
+
+        self.horizontalLayout_8.addWidget(self.btnProbioticSprayer)
 
         self.horizontalSpacer_8 = QSpacerItem(10, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_8.addItem(self.horizontalSpacer_8)
 
-        self.cbProbioticSprayer = QCheckBox(self.centralwidget)
-        self.cbProbioticSprayer.setObjectName(u"cbProbioticSprayer")
-        self.cbProbioticSprayer.setStyleSheet(u"QCheckBox {\n"
-"    spacing: 5px;\n"
-"    color: #4C3A68;\n"
-"    font: bold 14px;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator {\n"
-"    width: 20px;\n"
-"    height: 20px;\n"
-"    border: 2px solid #A08BC7;\n"
-"    border-radius: 4px;\n"
-"    background-color: #FFFFFF;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:hover {\n"
-"    border-color: #7B5EA7;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:checked {\n"
-"    background-color: #A08BC7;\n"
-"    border-color: #7B5EA7;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:unchecked {\n"
-"    background-color: #FFFFFF;\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:disabled {\n"
-"    background-color: #E8D4FF;\n"
-"    border-color: #C1B1E2;\n"
-"    color: #B3A2CC;\n"
-"}\n"
-"")
-
-        self.horizontalLayout_8.addWidget(self.cbProbioticSprayer, 0, Qt.AlignVCenter)
-
         self.horizontalLayout_8.setStretch(0, 2)
-        self.horizontalLayout_8.setStretch(2, 1)
-        self.horizontalLayout_8.setStretch(4, 1)
-        self.horizontalLayout_8.setStretch(5, 1)
 
         self.layout_A2.addLayout(self.horizontalLayout_8)
 
@@ -846,7 +788,7 @@ class Ui_AquaPlayer(object):
         font1.setFamily(u"Arial")
         font1.setBold(False)
         font1.setItalic(False)
-        font1.setWeight(50)
+        font1.setWeight(QFont.Weight.Normal)
         self.labTemp.setFont(font1)
         self.labTemp.setCursor(QCursor(Qt.ArrowCursor))
         self.labTemp.setMouseTracking(False)
@@ -1687,8 +1629,8 @@ class Ui_AquaPlayer(object):
         AquaPlayer.setWindowTitle(QCoreApplication.translate("AquaPlayer", u"\u667a\u6167\u990a\u6b96\u5100\u9336\u677f", None))
         self.homeFunPushButton.setText(QCoreApplication.translate("AquaPlayer", u"\u9996\u9801", None))
         self.sensorFunPushButton.setText(QCoreApplication.translate("AquaPlayer", u"\u611f\u6e2c\u5668", None))
-        self.probioticFunPushButton.setText(QCoreApplication.translate("AquaPlayer", u"\u76ca\u751f\u83cc", None))
         self.feederFunPushButton.setText(QCoreApplication.translate("AquaPlayer", u"\u9935\u98df\u5668", None))
+        self.probioticFunPushButton.setText(QCoreApplication.translate("AquaPlayer", u"\u76ca\u751f\u83cc", None))
         self.deviceFunPushButton.setText(QCoreApplication.translate("AquaPlayer", u"\u8a2d\u5099", None))
         self.mapFunPushButton.setText(QCoreApplication.translate("AquaPlayer", u"\u5730\u5716", None))
         self.labTitle.setText(QCoreApplication.translate("AquaPlayer", u"\u990a\u6b96\u5834\u72c0\u614b", None))
@@ -1702,12 +1644,10 @@ class Ui_AquaPlayer(object):
         self.labIPKeyinTitle.setText(QCoreApplication.translate("AquaPlayer", u"IP", None))
         self.btnConn.setText(QCoreApplication.translate("AquaPlayer", u"\u9023\u7dda", None))
         self.labDeviceStatus.setText(QCoreApplication.translate("AquaPlayer", u"\u8a2d\u5099\u72c0\u614b", None))
-        self.labDev1.setText(QCoreApplication.translate("AquaPlayer", u"\u81ea\u52d5\u6295\u9935\u5668", None))
-        self.labDev1Status.setText(QCoreApplication.translate("AquaPlayer", u"\u95dc\u9589", None))
-        self.cbAutoFeeder.setText(QCoreApplication.translate("AquaPlayer", u"\u555f\u52d5", None))
+        self.labDev1.setText(QCoreApplication.translate("AquaPlayer", u"\u9935\u98df\u5668", None))
+        self.btnAutoFeeder.setText(QCoreApplication.translate("AquaPlayer", u"\u555f\u52d5", None))
         self.labDev2.setText(QCoreApplication.translate("AquaPlayer", u"\u76ca\u751f\u83cc\u5674\u7051\u5668", None))
-        self.labDev2Status.setText(QCoreApplication.translate("AquaPlayer", u"\u95dc\u9589", None))
-        self.cbProbioticSprayer.setText(QCoreApplication.translate("AquaPlayer", u"\u555f\u52d5", None))
+        self.btnProbioticSprayer.setText(QCoreApplication.translate("AquaPlayer", u"\u555f\u52d5", None))
         self.labSensorType.setText(QCoreApplication.translate("AquaPlayer", u"\u611f\u6e2c\u5668\u8cc7\u6599", None))
         self.labTemp.setText(QCoreApplication.translate("AquaPlayer", u"\u6eab\u5ea6", None))
         self.labTempValue.setText(QCoreApplication.translate("AquaPlayer", u"0.0", None))

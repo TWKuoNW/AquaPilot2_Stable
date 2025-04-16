@@ -11,7 +11,7 @@ class Connector(): # 建立一個連接器的class
         self.port = port 
         # 創建一個socket物件，其中 socket.AF_INET 代表使用 IPv4 地址族；SOCK_STREAM 則代表使用 TCP 傳輸，若想使用 UDP 則宣告成 SOCK_DGRAM。
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.client_socket.settimeout(3) # 判定十秒為超時連線
+        self.client_socket.settimeout(3) # 判定三秒為超時連線
         self.client_socket.setblocking(1)
         self.client_socket.connect((host, port)) # 連接伺服器
        
