@@ -2,8 +2,10 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from FeederManager_UI.FeederManagerUI import Ui_Form
+
 from SITD_demo.full import AI_Fun as AI_Fun_Full
 from SITD_demo.hungry import AI_Fun as AI_Fun_Hungry
+
 from datetime import datetime
 
 import sys

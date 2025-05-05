@@ -9,6 +9,7 @@ from SensorDataPlotWidget import Form as sensorDataPlot
 from DeviceManagerWidget import Form as DeviceManagerWidget
 from ProbioticManagerWidget import Form as ProbioticManagerWidget
 from FeederManagerWidget import Form as FeederManagerWidget
+from VideoThread import VideoThread
 
 import cv2
 import threading
@@ -20,8 +21,8 @@ class QMainWindow(QMainWindow): # 覆寫QMainWindow
         self.setWindowIcon(QIcon('img\\Logo3_fix.png')) # 設定視窗icon
     
     @Slot()
-    def closeEvent(self, event): # 關閉視窗事件
-        print("關閉AquaPilot") # 顯示關閉事件
+    def closeEvent(self, event):  # 關閉視窗事件
+        print("關閉AquaPilot")    # 顯示關閉事件
         QApplication.instance().quit() # 關閉視窗
     
 
@@ -29,15 +30,15 @@ class MyApp():
     def __init__(self):
         self.app = QApplication([]) # 創建應用程式
         self.window = QMainWindow() # 創建視窗
-        self.ui = Ui_AquaPlayer() # 創建UI
+        self.ui = Ui_AquaPlayer()   # 創建UI
         self.ui.setupUi(self.window) # 設定UI
         # ------------------------------------- #
         #          是否開啟debug模式             #
         # ------------------------------------- #
-        self.debug = True 
+        self.debug = False 
 
         self.ui.txtName.setText("養殖場 01")
-        self.ui.txtIP.setText("192.168.0.101")
+        self.ui.txtIP.setText("192.168.51.120")
 
         self.connector = None # 初始化connector為None
 
@@ -84,9 +85,10 @@ class MyApp():
         # open com
         if(not self.debug):
             print("open com...")
-            self.af_ser = serial.Serial(port='COM8', baudrate=9600, timeout=1) 
+            self.af_ser = serial.Serial(port='COM4', baudrate=9600, timeout=1) 
+            print("comport is opened.")
 
-        self.ui.pteComm.setPlainText("-----------------------------命令視窗-----------------------------")
+        self.ui.pteComm.setPlainText("-------------------命令視窗-------------------")
     
     def run(self): # 執行應用程式，於程式啟動時執行
         self.window.show()
@@ -103,8 +105,8 @@ class MyApp():
             self.ui.pteComm.appendPlainText("成功連接伺服器")            
             self.ui.labName.setText(str(name))
             self.ui.labIP.setText(str(ip))
-            video0_url = 'http://' + str(ip) + ':8001/video'
-            video1_url = 'http://' + str(ip) + ':8000/video'
+            video0_url = 'http://' + str(ip) + ':8000/video'
+            video1_url = 'http://' + str(ip) + ':8001/video'
             self.cap0 = cv2.VideoCapture(video0_url)
             self.cap1 = cv2.VideoCapture(video1_url)
             self.update_sensorvalue.start(1000) # 啟動updateSensorValue，並每秒更新一次感測器數值
@@ -151,7 +153,7 @@ class MyApp():
                 w = 320
                 h = 240
             
-            p = convertToQtFormat.scaled(w, h, aspectRatioMode=QtCore.Qt.KeepAspectRatio) # 保持長寬比
+            p = convertToQtFormat.scaled(w, h, QtCore.Qt.KeepAspectRatio) # 保持長寬比
             self.ui.labVideo0.setPixmap(QPixmap.fromImage(p)) # 顯示畫面
 
     def updateFrame1(self): # 更新相機畫面
